@@ -17,6 +17,7 @@ def form_page():
 
 @app.route('/submitted')
 def submitted():
+    print("geg")
     return render_template("submitted_forms.html",)
 
 
