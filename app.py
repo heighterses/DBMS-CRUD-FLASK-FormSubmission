@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 app = Flask(__name__)
+app.secret_key = '123'
 
 
 @app.route('/', methods=["POST", "GET"])
@@ -10,15 +11,13 @@ def form_page():
         name = data["name"]
         email = data["email"]
         age = data["age"]
-        return redirect(url_for('submitted', name=name))
-
+        return render_template("submitted_forms.html", name=name, email=email, age=age)
     return render_template("index.html")
 
 
 @app.route('/submitted')
 def submitted():
-    print("geg")
-    return render_template("submitted_forms.html",)
+    return render_template("submitted_forms.html")
 
 
 if __name__ == '__main__':
