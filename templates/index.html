@@ -6,21 +6,23 @@
 </head>
 <body>
 
-<h1>Enter Details</h1>
+<h1>My Library</h1>
 
-<form method="post">
-    <label for = "name">Name: </label>
-     <input type="text" name="name">
+<a href="{{ url_for('add_book') }}">Add New Book</a>
 
-    <label for="email">Email: </label>
-        <input type="email" name="email">
-
-    <label for="age">Age: </label>
-        <input type="number" name="age">
-
-    <button type="submit" value="submit" name="submit_button">submit</button>
-
-    <br>
+{#<form method="post">#}
+{#    <label for = "name">Name: </label>#}
+{#     <input type="text" name="name">#}
+{##}
+{#    <label for="email">Email: </label>#}
+{#        <input type="email" name="email">#}
+{##}
+{#    <label for="age">Age: </label>#}
+{#        <input type="number" name="age">#}
+{##}
+{#    <button type="submit" value="submit" name="submit_button">submit</button>#}
+{##}
+{#    <br>#}
 
 {#<a href="{{ url_for('submitted') }}">Check Data</a>#}
 
