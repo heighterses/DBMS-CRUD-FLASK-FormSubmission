@@ -9,8 +9,8 @@ db = SQLAlchemy(app)
 
 
 class BOOKS(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False)
+    # id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, primary_key=True, nullable=False)
     author = db.Column(db.String, nullable=False)
     rating = db.Column(db.Float, nullable=False)
 
@@ -19,12 +19,12 @@ with app.app_context():
     db.create_all()
 
 # APPLICATION CODE
-all_books = []
+# all_books = []
 
 
 @app.route('/')
 def home():
-    return render_template('index.html', books=[])
+    return render_template('index.html')
 
 
 @app.route('/add', methods=["POST", "GET"])
@@ -35,12 +35,12 @@ def add_book():
         author = data["author"]
         rating = data["rating"]
 
-        new_book = {
-            "title": data["name"],
-            "author": data["author"],
-            "rating": data["rating"]
-        }
-        all_books.append(new_book)
+        # new_book = {
+        #     "title": data["name"],
+        #     "author": data["author"],
+        #     "rating": data["rating"]
+        # }
+        # all_books.append(new_book)
 
         with app.app_context():
             enter_books_data = BOOKS(name=title,author=author,rating=rating)
