@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///book_shelf.db"
 db = SQLAlchemy(app)
 
 
-class BOOKshelf(db.Model):
+class BOOKS(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     author = db.Column(db.String, nullable=False)
@@ -41,6 +41,9 @@ def add_book():
         #     "rating": data["rating"]
         # }
         # all_books.append(new_book)
+
+        with app.app_context():
+            enter_books_data = BOOKS()
 
         return redirect(url_for('home'))
 
