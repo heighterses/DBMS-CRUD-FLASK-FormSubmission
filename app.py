@@ -35,15 +35,17 @@ def add_book():
         author = data["author"]
         rating = data["rating"]
 
-        # new_book = {
-        #     "title": data["name"],
-        #     "author": data["author"],
-        #     "rating": data["rating"]
-        # }
-        # all_books.append(new_book)
+        new_book = {
+            "title": data["name"],
+            "author": data["author"],
+            "rating": data["rating"]
+        }
+        all_books.append(new_book)
 
         with app.app_context():
-            enter_books_data = BOOKS()
+            enter_books_data = BOOKS(name=title,author=author,rating=rating)
+            db.session.add(enter_books_data)
+            db.session.commit()
 
         return redirect(url_for('home'))
 
