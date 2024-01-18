@@ -7,29 +7,21 @@
 <body>
 
 <h1>My Library</h1>
+<br>
+{% if not books %}
+    <p>empty</p>
+{% endif %}
+<br>
+
+<ul>
+    {% for book in books %}
+    <li>
+        {{ book.title }} - {{ book.author }} - {{ book.rating }}
+    </li>
+    {% endfor %}
+</ul>
 
 <a href="{{ url_for('add_book') }}">Add New Book</a>
-
-{#<form method="post">#}
-{#    <label for = "name">Name: </label>#}
-{#     <input type="text" name="name">#}
-{##}
-{#    <label for="email">Email: </label>#}
-{#        <input type="email" name="email">#}
-{##}
-{#    <label for="age">Age: </label>#}
-{#        <input type="number" name="age">#}
-{##}
-{#    <button type="submit" value="submit" name="submit_button">submit</button>#}
-{##}
-{#    <br>#}
-
-{#<a href="{{ url_for('submitted') }}">Check Data</a>#}
-
-
-
-</form>
-
 
 </body>
 </html>
