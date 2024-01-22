@@ -79,6 +79,19 @@ def update_book(title):
 
     if request.method == "POST":
         data = request.form
+        new_title = data["name"]
+        new_author = data["author"]
+        new_rating = data["rating"]
+
+        try:
+            with app.app_context():
+                book_to_update.name = new_title
+                book_to_update.author = new_author
+                book_to_update.rating = new_rating
+                db.session.commit()
+
+        return redirect(url_for("home"))
+    return render_template()
 
 
 if __name__ == '__main__':
