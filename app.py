@@ -22,7 +22,7 @@ with app.app_context():
     db.create_all()
 
 # APPLICATION CODE
-all_books = []
+# all_books = []
 
 
 @app.route('/')
