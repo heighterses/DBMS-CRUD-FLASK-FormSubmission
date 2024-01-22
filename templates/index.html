@@ -8,18 +8,18 @@
 
 <h1>My Library</h1>
 <br>
-{#{% if not books %}#}
-{#    <p>empty</p>#}
-{#{% endif %}#}
-{#<br>#}
-{##}
-{#<ul>#}
-{#    {% for book in books %}#}
-{#    <li>#}
-{#        {{ book.title }} - {{ book.author }} - {{ book.rating }}#}
-{#    </li>#}
-{#    {% endfor %}#}
-{#</ul>#}
+{% if not books %}
+    <p>empty</p>
+{% endif %}
+<br>
+
+<ul>
+    {% for book in books %}
+    <li>
+        {{ book.title }} - {{ book.author }} - {{ book.rating }}
+    </li>
+    {% endfor %}
+</ul>
 
 <a href="{{ url_for('add_book') }}">Add New Book</a>
 
