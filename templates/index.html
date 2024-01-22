@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +9,17 @@
 
 <h1>My Library</h1>
 <br>
-{% if not books %}
-    <p>empty</p>
-{% endif %}
+{#{% if not books %}#}
+{#    <p>empty</p>#}
+{#{% endif %}#}
 <br>
 
 <ul>
     {% for book in books %}
     <li>
         {{ book.title }} - {{ book.author }} - {{ book.rating }}
+       <a href="{{ url_for('delete_book', title=book.name.replace(' ', '_')) }}">delete</a>
+
     </li>
     {% endfor %}
 </ul>
