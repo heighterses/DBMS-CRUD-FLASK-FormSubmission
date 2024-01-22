@@ -5,7 +5,6 @@ app = Flask(__name__)
 
 app.secret_key = '1234'
 
-
 # DATABASE INTEGRATION
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///book_shelf.db"
 db = SQLAlchemy(app)
@@ -20,6 +19,7 @@ class BOOKS(db.Model):
 
 with app.app_context():
     db.create_all()
+
 
 # APPLICATION CODE
 # all_books = []
@@ -72,6 +72,13 @@ def delete_book(title):
 
     return redirect(url_for("home"))
 
+
+@app.route('/update/<string:title>', methods=["GET", "POST"])
+def update_book(title):
+    book_to_update = BOOKS.query.filter_by(name=title).first()
+
+    if request.method == "POST":
+        data = request.form
 
 
 if __name__ == '__main__':
